@@ -21,12 +21,37 @@ To implement univariate Linear Regression to fit a straight line using least squ
 /*
 Program to implement univariate Linear Regression to fit a straight line using least squares.
 Developed by: 
-RegisterNumber:  
+RegisterNumber:
 */
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+X = np.array([2,3,4,5,6]).reshape(-1,1)
+Y = np.array([20000,30000,40000,45000,50000])
+
+model = LinearRegression()
+
+model.fit(X,Y)
+
+predict = model.predict(X)
+
+print("Coefficient:",model.coef_[0])
+print("Intercept:", model.intercept_)
+
+plt.scatter(X,Y,color='blue',label='Experiance')
+plt.plot(X,predict,color='red',label='Salary')
+plt.title('Linear Regression Example')
+plt.xlabel('Experiance')
+plt.ylabel('Salary')
+plt.legend() 
+plt.show()
+
 ```
 
 ## Output:
-![best fit line](sam.png)
+<img width="818" height="617" alt="image" src="https://github.com/user-attachments/assets/20834295-e36a-4308-a916-5f06b63c9b0d" />
+
 
 
 ## Result:
